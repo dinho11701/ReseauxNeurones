@@ -62,7 +62,7 @@ Ouvrir le lien affiché dans le terminal (`http://localhost:8501`).
 ├── app.py                      # Interface utilisateur
 ├── offline.py                 # Script d'extraction + clustering
 ├── data/                      # Données offline (.npy)
-├── Datasets/                  # Images d'entraînement
+├── Datasets/Datasets                  # Images d'entraînement
 ├── requirements.txt           # Fichier des dépendances
 ├── README.md                  # Documentation
 └── venv/                      # Environnement virtuel (non versionné)

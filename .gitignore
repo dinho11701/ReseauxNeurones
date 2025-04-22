@@ -1,0 +1,25 @@
+# 🔒 Exclure l'environnement virtuel
+venv/
+
+# 📦 Dossiers volumineux de données
+Datasets/
+data/
+
+# 🧪 Fichiers générés automatiquement (vectorisations, labels, chemins d’images)
+*.npy
+*.pkl
+
+# 💾 Fichiers de logs et temporaires
+*.log
+*.tmp
+
+# 📝 Fichiers bureautiques volumineux
+*.docx
+
+# 💻 Fichiers spécifiques à l’OS
+.DS_Store
+Thumbs.db
+
+# 📄 Streamlit cache
+.streamlit/
+

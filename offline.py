@@ -13,6 +13,9 @@ from tqdm import tqdm
 IMAGE_DIR = "Datasets/Datasets/"
 image_paths = [os.path.join(IMAGE_DIR, f) for f in os.listdir(IMAGE_DIR) if f.endswith(".jpg")]
 
+# Créer le dossier 'data' s’il n’existe pas
+os.makedirs("data", exist_ok=True)
+
 # Initialiser les modèles
 MODELS = {
     "VGG16": (VGG16(weights="imagenet", include_top=False, pooling="avg"), (224, 224), preprocess_vgg),
@@ -40,14 +43,14 @@ for model_name, (model, target_size, preprocess) in MODELS.items():
             print(f"Erreur pour {path} : {e}")
 
     features = np.array(features)
-    np.save(f"{model_name}_vectors.npy", features)
-    np.save(f"{model_name}_paths.npy", valid_paths)
+    np.save(f"data/{model_name}_vectors.npy", features)
+    np.save(f"data/{model_name}_paths.npy", valid_paths)
 
     # Clustering avec KMeans (nombre de clusters = 5 pour l’exemple)
     print(f"🔍 Clustering avec KMeans pour {model_name}...")
     kmeans = KMeans(n_clusters=5, random_state=42)
     labels = kmeans.fit_predict(features)
-    np.save(f"{model_name}_labels.npy", labels)
+    np.save(f"data/{model_name}_labels.npy", labels)
 
     print(f"✅ Données sauvegardées pour {model_name}")
 
